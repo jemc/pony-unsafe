@@ -1,17 +1,16 @@
 
 use "ponytest"
 
-actor Main
+actor Main is TestList
   new create(env: Env) =>
-    let test = PonyTest(env)
-    test(_TestAA(env))
-    test.complete()
+    let test = PonyTest(env, this)
+  
+  fun tag tests(test: PonyTest) =>
+    test(_TestAA)
 
 class _TestAA is UnitTest
-  let _env: Env
   var _foo: String = "foo"
   
-  new iso create(env: Env) => _env = env
   fun name(): String => "aa/AA"
   fun foo(): String => _foo
   
