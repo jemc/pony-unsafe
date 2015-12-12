@@ -6,13 +6,13 @@ primitive Unsafe
   fun null[A = Any tag](): A =>
     obj_from_id[A](0)
   
-  fun obj_id(ptr: Any tag): USize =>
+  fun obj_id[B = Any tag](ptr: B): USize =>
     @pony_unsafe_obj_id[USize](ptr)
   
   fun obj_from_id[A = Any tag](id: USize): A =>
     @pony_unsafe_obj_from_id[A](id)
   
-  fun cast[A = Any tag](ptr: Any tag): A =>
+  fun cast[A = Any tag, B = Any tag](ptr: B): A =>
     @pony_unsafe_cast[A](ptr)
   
   fun _get_main[A = Any tag](): A =>
