@@ -9,6 +9,10 @@ void *pony_unsafe_obj_from_id(uintptr_t id) {
   return (void *)id;
 }
 
+void *pony_unsafe_cast(void *ptr) {
+  return ptr;
+}
+
 static void *s_ptr = 0;
 
 uintptr_t pony_unsafe_get_main_id() {
