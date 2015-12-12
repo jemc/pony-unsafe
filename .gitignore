@@ -1,2 +1,2 @@
 lib/*.so
-unsafe/unsafe
+unsafe/test/test
