@@ -1,11 +1,11 @@
 
-libpony-aa.so: pony-aa.c
-	gcc -shared -Wl,-soname,libpony-aa.so -o libpony-aa.so pony-aa.c
+libpony-unsafe.so: pony-unsafe.c
+	gcc -shared -Wl,-soname,libpony-unsafe.so -o libpony-unsafe.so pony-unsafe.c
 
-build: libpony-aa.so
+build: libpony-unsafe.so
 
-install: libpony-aa.so
-	sudo cp libpony-aa.so /usr/lib64/
+install: libpony-unsafe.so
+	sudo cp libpony-unsafe.so /usr/lib64/
 	sudo ldconfig
 
 .PHONY: build install
