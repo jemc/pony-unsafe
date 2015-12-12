@@ -30,7 +30,7 @@ class _TestUnsafe is UnitTest
     let obj_iso: SomeClass iso = recover SomeClass end
     let obj_tag: SomeClass tag = obj_iso
     let obj_val: SomeClass val = consume obj_iso
-    h.expect_true(obj_tag is Unsafe.cast[SomeClass iso, SomeClass val](obj_val), "cast[SomeClass iso]")
+    h.expect_true(obj_tag is Unsafe.cast_as[SomeClass iso, SomeClass val](obj_val), "cast_as[SomeClass iso]")
     
     h.expect_error(lambda()? => Unsafe.get_main[Any]() end, "get_main NULL")
     Unsafe.set_main(this)

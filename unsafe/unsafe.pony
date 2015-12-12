@@ -12,7 +12,7 @@ primitive Unsafe
   fun obj_from_id[A = Any tag](id: USize): A =>
     @pony_unsafe_obj_from_id[A](id)
   
-  fun cast[A = Any tag, B = Any tag](ptr: B): A =>
+  fun cast_as[A = Any tag, B = Any tag](ptr: B): A =>
     @pony_unsafe_cast[A](ptr)
   
   fun _get_main[A = Any tag](): A =>
