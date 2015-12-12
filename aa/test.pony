@@ -15,8 +15,8 @@ class _TestAA is UnitTest
   fun foo(): String => _foo
   
   fun apply(h: TestHelper): TestResult? =>
-    h.expect_eq[U64](AA.obj_id(this), AA.obj_id(this))
-    h.expect_eq[U64](AA.obj_id(h), AA.obj_id(h))
+    h.expect_eq[USize](AA.obj_id(this), AA.obj_id(this))
+    h.expect_eq[USize](AA.obj_id(h), AA.obj_id(h))
     h.expect_false(AA.obj_id(this) == AA.obj_id(h))
     
     let this_id = AA.obj_id(this)
