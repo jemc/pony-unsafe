@@ -6,7 +6,7 @@ PKG=unsafe
 lib/libpony-${PKG}.so: lib/pony-${PKG}.c
 	gcc -shared -Wl,-soname,libpony-${PKG}.so -o $@ $^
 
-bin/test: lib/libpony-${PKG}.so $(shell find ${PKG} -name *.pony)
+bin/test: lib/libpony-${PKG}.so $(shell find ${PKG} .deps -name *.pony)
 	mkdir -p bin
 	ponyc --debug -o bin ${PKG}/test
 
@@ -14,7 +14,7 @@ test: bin/test
 	$^
 
 clean:
-	rm -rf bin
+	rm -rf bin lib/libpony-${PKG}.so
 
 lldb:
 	lldb -o run -- $(shell which ponyc) --debug -o /tmp ${PKG}/test
