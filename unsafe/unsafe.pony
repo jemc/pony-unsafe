@@ -1,5 +1,5 @@
 
-use "path:/usr/local/lib"
+use "path:./lib"
 use "lib:pony-unsafe"
 
 primitive Unsafe
