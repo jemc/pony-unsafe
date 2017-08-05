@@ -32,10 +32,10 @@ class _TestUnsafe is UnitTest
     let obj_val: SomeClass val = consume obj_iso
     h.assert_true(obj_tag is Unsafe.cast_as[SomeClass iso, SomeClass val](obj_val), "cast_as[SomeClass iso]")
     
-    h.assert_error({()? => Unsafe.get_main[Any]() }, "get_main NULL")
-    Unsafe.set_main(this)
-    h.assert_true(Unsafe.get_main[Any]() is this, "get_main[Any]")
-    h.assert_true(Unsafe.get_main[this->_TestUnsafe]() is this, "get_main")
-    h.assert_error({()? => Unsafe.set_main(this) }, "set_main again")
+    h.assert_error({()? => Unsafe.get_main[Any]()? }, "get_main NULL")
+    Unsafe.set_main(this)?
+    h.assert_true(Unsafe.get_main[Any]()? is this, "get_main[Any]")
+    h.assert_true(Unsafe.get_main[this->_TestUnsafe]()? is this, "get_main")
+    h.assert_error({()? => Unsafe.set_main(this)? }, "set_main again")
     
     true
